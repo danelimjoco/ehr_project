@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  web:
+    build: ./app
+    ports:
+      - "8080:5000"
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./database
+    environment:
+      POSTGRES_DB: ehr_database
+      POSTGRES_USER: danelimjoco
+      POSTGRES_PASSWORD: Uppt1986!
+    ports:
+      - "5432:5432"
