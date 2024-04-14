@@ -1,5 +1,5 @@
--- Create database
-CREATE DATABASE ehr_database;
+-- YOU DONT NEED TO CREATE DATABASE HERE, IT IS ALREADY CREATED IN docker-compose.yml
+--CREATE DATABASE ehr_database; Y
 
 -- Connect to the newly created database
 \c ehr_database;

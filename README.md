@@ -120,7 +120,7 @@ Exit
 ```bash
 cd path/to/your/project/directory
 
-python app.py
+python run.py
 ```
 
 Now in browser, type:
