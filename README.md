@@ -43,7 +43,7 @@ The project directory is organized as follows:
    pip install -r requirements.txt
    ```
 
-## Database setup
+## Database setup (on local machine)
 
 Install postgres
 
@@ -115,18 +115,23 @@ Exit
 \q
 ```
 
-## Running this app
+## Running this app (container for flask, container for db)
 
 ```bash
-cd path/to/your/project/directory
-
-python run.py
+cd path/to/ehr_project
+docker compose up
 ```
+
+This will spin up 2 containers:
+1. a flask app container (port 8080 on host machine, port 5000 on container)
+2. a postgres container (port 5432 on host machine, port 5432 on container)
 
 Now in browser, type:
 ```bash
-http://127.0.0.1:5000/
+http://localhost:8080/
 ```
+
+This will show UI in browser and CRUD operations may be performed to interact with db on other container.
 
 
 
