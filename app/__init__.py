@@ -16,7 +16,7 @@ def create_app():
     app.logger.setLevel(logging.INFO) 
 
     # Database configuration for SQLAlchemy
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://danelimjoco:Uppt1986!@db/ehr_database'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://danelimjoco:Uppt1986!@db:5432/ehr_database'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # Initialize SQLAlchemy within the app
