@@ -12,7 +12,7 @@ services:
     build:
       context: ./database
     environment:
-      POSTGRES_DB: ehr_database
+      POSTGRES_DB: ehr_database # automatically creates the ehr_database in the container
       POSTGRES_USER: danelimjoco
       POSTGRES_PASSWORD: Uppt1986!
     ports:
