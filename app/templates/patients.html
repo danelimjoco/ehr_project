@@ -11,7 +11,7 @@
     
     <!-- Form for adding a new patient -->
     <h2>Add Patient</h2>
-    <form action="/add_patient" method="post">
+    <form action="/patients/add_patient" method="post">
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required><br>
 
@@ -44,24 +44,30 @@
 
     <!-- Form for getting patient info -->
     <h2>Get Patient</h2>
-    <form action="/get_patient" method="get">
+    <form action="/patients/get_patient" method="get">
         <label for="patient_id">Patient ID:</label>
         <input type="number" id="patient_id" name="patient_id" required><br>
         <input type="submit" value="Get Info">
     </form>
 
-    <!-- Display success message if action is 'retrieved' -->
-    {% if action == 'retrieved' %}
-        {% if patient_info %}
-            <p style="color: green;">Patient Info: {{ patient_info }}</p>
-        {% else %}
-            <p style="color: red;">Patient not found!</p>
-        {% endif %}
-    {% endif %}
+	<!-- Display error message if action is 'not_found' -->
+	{% if action == 'not_found' %}
+	    <p style="color: red;">Patient not found!</p>
+	{% endif %}
+
+	<!-- Display success message if action is 'retrieved' -->
+	{% if action == 'retrieved' %}
+	    {% if patient_info %}
+	        <p style="color: green;">{{ patient_info }}</p>
+	    {% else %}
+	        <!-- Display error message if patient_info is empty -->
+	        <p style="color: red;">Patient not found!</p>
+	    {% endif %}
+	{% endif %}
 
     <!-- Form for updating patient info -->
     <h2>Update Patient</h2>
-    <form action="/update_patient" method="post">
+    <form action="/patients/update_patient" method="post">
         <label for="patient_id">Patient ID:</label>
         <input type="number" id="patient_id" name="patient_id" required><br>
 
@@ -98,7 +104,7 @@
 
     <!-- Form for deleting patient info -->
     <h2>Delete Patient</h2>
-    <form action="/delete_patient" method="post">
+    <form action="/patients/delete_patient" method="post">
         <label for="patient_id">Patient ID:</label>
         <input type="number" id="patient_id" name="patient_id" required><br>
         <input type="submit" value="Delete">
