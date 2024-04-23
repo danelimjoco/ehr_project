@@ -76,24 +76,33 @@ psql -f init_script.sql
 ```
 
 
-
-## psql commands
-
-Run this to access psql command-line interface
+## Running this app (container for flask, container for db)
 
 ```bash
-psql
+cd path/to/ehr_project
+docker compose up
 ```
 
-List databases on server
+This will spin up 2 containers:
+1. a flask app container (port 8080 on host machine, port 5000 on container)
+2. a postgres container (port 5432 on host machine, port 5432 on container)
 
+Now in browser, type:
 ```bash
-\l
+http://localhost:8080/
 ```
 
-Connect to database
+This will show UI in browser and CRUD operations may be performed to interact with db on other container.
+
+To check database container, run:
+```bash
+docker exec -it ehr_project-db-1 bash
+```
+
+Connect to database:
 
 ```bash
+psql -U danelimjoco ehr_database
 \c ehr_database
 ```
 
@@ -115,23 +124,7 @@ Exit
 \q
 ```
 
-## Running this app (container for flask, container for db)
 
-```bash
-cd path/to/ehr_project
-docker compose up
-```
-
-This will spin up 2 containers:
-1. a flask app container (port 8080 on host machine, port 5000 on container)
-2. a postgres container (port 5432 on host machine, port 5432 on container)
-
-Now in browser, type:
-```bash
-http://localhost:8080/
-```
-
-This will show UI in browser and CRUD operations may be performed to interact with db on other container.
 
 
 
