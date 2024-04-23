@@ -43,8 +43,8 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL
-    -- Add other columns as needed
+    email VARCHAR(100) UNIQUE NOT NULL,
+    is_active BOOL NOT NULL DEFAULT TRUE
 );
 
 -- Insert dummy data into the tables
