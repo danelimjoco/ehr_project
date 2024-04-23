@@ -7,4 +7,4 @@ homepage_bp = Blueprint('homepage', __name__)
 @homepage_bp.route('/')
 def index():
     # Render the index.html template for the homepage
-    return render_template('index.html')
+    return render_template('homepage.html')

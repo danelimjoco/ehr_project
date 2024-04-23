@@ -22,6 +22,10 @@ def create_app():
     # Initialize SQLAlchemy within the app
     db.init_app(app)
 
+    # Register patient blueprint
+    from .routes.auth_routes import auth_bp
+    app.register_blueprint(auth_bp)
+
     # Register homepage blueprint
     from .routes.homepage_routes import homepage_bp
     app.register_blueprint(homepage_bp)

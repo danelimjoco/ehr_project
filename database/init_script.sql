@@ -38,6 +38,15 @@ CREATE TABLE treatments (
     treatment_notes TEXT
 );
 
+-- Create users table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+    -- Add other columns as needed
+);
+
 -- Insert dummy data into the tables
 INSERT INTO patients (first_name, last_name, date_of_birth, gender, address, insurance_id)
 VALUES
@@ -58,3 +67,8 @@ INSERT INTO treatments (eval_id, treatment_date, treatment_notes)
 VALUES
     (1, '2022-01-07', 'Prescribed physical therapy for 6 weeks.'),
     (2, '2022-02-12', 'Administered corticosteroid injection.');
+
+-- Insert dummy data into the users table
+INSERT INTO users (username, password_hash, email)
+VALUES
+    ('admin', 'admin123', 'admin@example.com');
